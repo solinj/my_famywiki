@@ -13,19 +13,12 @@ import bson as bo
 import glob
 #from bson.objectid import ObjectId
 
-
-
-
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'wiki' # name of database on mongo
 app.config["MONGO_URI"] = "mongodb://127.0.0.1:27017/wiki"
 mongo = fp.PyMongo(app)
 
-
-@app.route("/dict_dir")
-def dictDir():
-    return (str(request.__dict__) + "\n" + str(request.__dir__))
 
 
 @app.route("/", methods=["GET"])
