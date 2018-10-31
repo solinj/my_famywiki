@@ -1,3 +1,21 @@
+import Article as a
+import Utilisateur as u
+
+yolo = a.Article("en cours de validation", "Le Yolo", "le yolo est une expression etc", "langage", "auteur", 2018)
+# self, statut, titre, texte, theme, auteur, date, commentaires="0", liens_click="0"):
+print("yolo")
+yolo.__repr__()
+
+user = u.Utilisateur("en cours de validation", 1, "mimi", "dupont", "ginette", "gigi@gigi.com", "54321", "2018")
+# statut, role, pseudo, nom, prenom, email, password, date_inscription, u_articles=0, u_commentaires=0, id_photo=0
+#
+user.__repr__()
+
+
+
+
+
+
 # from flask import Flask, render_template
 # app = Flask(__name__)
 #
