@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5bdca75440e30ebf57d559b4"},"Animal":"Chat","Regime_Alimentaire":"Carnivore","Milieu_de_vie":"Ville","Classification":"Félidés"}
+{"_id":{"$oid":"5bdcaa6640e30ebf57d559b5"},"Animal":"Jaguar","Regime_Alimentaire":"Carnivore","Milieu_de_vie":"Forêt amazonienne","Classification":"Famille des félins"}
+{"_id":{"$oid":"5bdcaa6640e30ebf57d559b6"},"Animal":"Cheval","Regime_Alimentaire":"Herbivore","Milieu_de_vie":"Plaines, Ferme, Forêt","Classification":"Famille des équidés"}
+{"_id":{"$oid":"5bdcaac640e30ebf57d559b7"},"Animal":"Lion","Regime_Alimentaire":"Carnivore","Milieu_de_vie":"Savane, Forêt","Classification":"Félins"}
