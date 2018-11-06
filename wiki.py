@@ -21,7 +21,7 @@ mongo = fp.PyMongo(app)
 
 
 
-@app.route("/", methods=["GET"])
+@app.route("/article", methods=["GET"])
 def one_request():
     print("SOMETHING")
     # cursor = mongo.db.monuments.find({"REG":"Alsace"})
