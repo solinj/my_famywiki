@@ -21,26 +21,42 @@ mongo = fp.PyMongo(app)
 
 
 
-@app.route("/article", methods=["GET"])
-def one_request():
-
+@app.route("/", methods=["GET"])
+def accueil():
+    #ACCUEIL
     # cursor = mongo.db.monuments.find({"REG":"Alsace"})
     cursor = list(mongo.db.articles.find({"thème":"Autres"}))
-    return render_template('template.html' , data = cursor)
+    #return render_template("accueil.html")
+    return render_template('template.html', data = cursor)
 
-@app.route("/search/", methods=["GET", "POST"])
-def search():
+@app.route("/recherche_article/", methods=["GET", "POST"])
+def recherche_article():
     if request.method == 'POST':
-        print(request.form['mot_cle'])
+        print("POST RECHERCHE ARTICLE")
+        print(request.form['motcle'])
         format_input = request.form['theme'].lower()
         result_by_theme = list(mongo.db.articles.find({"thème":request.form['theme']}))
-        result_by_key_word = list(mongo.db.articles.find({"Titre":request.form['mot_cle']}))
-        return render_template('template.html', data = result_by_key_word)
+        result_by_key_word = list(mongo.db.articles.find({"thème":request.form['theme']}))
+        marqueur = "ok"
+        return render_template('HTML_BarreRecherche.html', data = result_by_key_word, src = marqueur)
     else:
+        print("GET RECHERCHE ARTICLE")
         return render_template('HTML_BarreRecherche.html')
-    #, data=cursor
+    #return render_template("themes.html")
 
 
+@app.route("/article/", methods=["GET", "POST"])
+def show_article():
+    return render_template("show_article.html")
+    pass
+    # if request.method == 'POST':
+    #     print(request.form['mot_cle'])
+    #     format_input = request.form['theme'].lower()
+    #     result_by_theme = list(mongo.db.articles.find({"theme":request.form['theme']}))
+    #     result_by_key_word = list(mongo.db.articles.find({"titre":request.form['mot_cle']}))
+    #     return render_template('template.html', data = result_by_key_word)
+    # else:
+    #     return render_template('HTML_BarreRecherche.html')
 
 
 
