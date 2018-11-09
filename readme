@@ -1,0 +1,1 @@
+mongoimport --db articles_bdd --collection articles --file C:\articles_bdd.json --jsonArray
