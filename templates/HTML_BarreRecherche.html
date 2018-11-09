@@ -29,9 +29,10 @@
     {% if src == "ok" %}
       <ul>
         {% for l in data %}
-        <li>{{l.thème}}</li>
+        <li>{{l.theme}}</li>
+    <li>{{l.titre}}</li>
         <li>{{l.auteur}}</li>
-        <li>{{l.thème}}</li>
+        <li>{{l.contenu}}</li>
         {% endfor %}
       </ul>
 {% endif %}

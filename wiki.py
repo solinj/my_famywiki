@@ -15,8 +15,8 @@ import glob
 
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = 'Famywiki_Articles' # name of database on mongo
-app.config["MONGO_URI"] = "mongodb://127.0.0.1:27017/Famywiki_Articles"
+app.config['MONGO_DBNAME'] = 'articles_bdd' # name of database on mongo
+app.config["MONGO_URI"] = "mongodb://127.0.0.1:27017/articles_bdd"
 mongo = fp.PyMongo(app)
 
 
@@ -25,7 +25,7 @@ mongo = fp.PyMongo(app)
 def accueil():
     #ACCUEIL
     # cursor = mongo.db.monuments.find({"REG":"Alsace"})
-    cursor = list(mongo.db.articles.find({"thème":"Autres"}))
+    cursor = list(mongo.db.articles.find({"theme":"science"}))
     #return render_template("accueil.html")
     return render_template('template.html', data = cursor)
 
@@ -35,10 +35,11 @@ def recherche_article():
         print("POST RECHERCHE ARTICLE")
         print(request.form['motcle'])
         format_input = request.form['theme'].lower()
-        result_by_theme = list(mongo.db.articles.find({"thème":request.form['theme']}))
-        result_by_key_word = list(mongo.db.articles.find({"thème":request.form['theme']}))
+        result_by_theme = list(mongo.db.articles.find({"motcle":request.form['motcle']}))
+        result_by_key_word = list(mongo.db.articles.find({"theme":request.form['theme']}))
         marqueur = "ok"
-        return render_template('HTML_BarreRecherche.html', data = result_by_key_word, src = marqueur)
+        #return render_template('HTML_BarreRecherche.html', data = result_by_key_word, src = marqueur)
+        return render_template('HTML_BarreRecherche.html', data=result_by_theme, src=marqueur)
     else:
         print("GET RECHERCHE ARTICLE")
         return render_template('HTML_BarreRecherche.html')
