@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 import mongo
 import math
 # import multi
-import logger
+#import logger
 import flask
 import flask_pymongo as fp
 import os
