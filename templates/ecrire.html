@@ -55,12 +55,21 @@ header h1 {
 	padding: 10px;
 
 }
-.connexion {
+.connexion{
 	margin-left : 20%;
 	margin-right: 20%;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
+	border:1px solid black;
+	padding : 30px;
+}
+.contact {
+	margin-left : 20%;
+	margin-right: 20%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: left;
 	border:1px solid black;
 	padding : 30px;
 }
@@ -82,8 +91,8 @@ aside {
 	<div class="topnav">
 	  <a href="accueil.html">Accueil</a>
 	  <a href="articles.html">Articles</a>
-	  <a href="ecrire.html">Ecrire</a>
-	  <a class="active" href="connexion.html">Connexion</a>
+	  <a class="active" href="ecrire.html">Ecrire</a>
+	  <a href="connexion.html">Connexion</a>
 	  <a href="inscription.html">Inscription</a>
 	</div>
 
@@ -107,22 +116,30 @@ aside {
 			</aside>
 		</div>
 		<div class="content">
-			<div class="connexion">
-			  <h2>Se connecter</h2>
-			  <form action="connexion.html" method="post">
-			  	<p>Nom d'utilisateur</p>
-				  <input name="name" type="text" >
-				<p>Mot de passe</p>
-				  <input name="password" type="text" > <br/>
-				  <input type="submit" value="Se connecter">
+			<div class="article">
+			  <h2>Ecrire</h2>
+			  <form action="ecrire.html" method="post">
+			  	<p>Titre</p>
+				  <textarea name="titre" rows=1 cols=70></textarea>
+				<p>Theme</p>
+				  <select id="theme">
+				  	<option name="science">Science et Technologies</option>
+				  	<option name="sante">Santé et nutrition</option>
+				  	<option name="agriculture">Agriculture</option>
+				  	<option name="economie">Economie et Finance</option>
+				  	<option name="politique">Politique</option>
+				  	<option name="energie">Energies renouvelables</option>
+				  	<option name="histoire">Histoire et Géographie</option>
+				  	<option name="informatique">Informatique</option>
+				  	<option name="autres">Autres</option>
+				  </select> <br/>
+
+				<p>Article</p>
+				<textarea name="contenu" rows=20 cols=70></textarea>
+				<br/> <br/>
+				  <input type="submit" value="Envoyer">
 				</form>
-				<a href="connexion.html">Mot de passe oublié ?</a>
-		  		<br/>
-	  			<br/>
-	  			<form action="inscription.html" method="post">
-			  	<p>Nouvel utilisateur</p>
-				  <input type="submit" value="S'inscrire">
-				</form>
+				
 			</div>
 		</div>
 	</div>

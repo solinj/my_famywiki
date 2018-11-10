@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<style>
+
+.container {
+   overflow: auto;
+}
+.sidebar--right {
+   width:30%;
+   float: right;
+   margin:0px;
+}
+.sidebar--right {
+   width:30%;
+   float: right;
+   margin:0px;
+}
+.content {
+   overflow: hidden;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  text-align: center;
+  margin: 0 auto;
+}
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+header h1 {
+   padding: 5px;
+   margin-left: 10%;
+}
+.article {
+   border:1px solid black;
+   margin: 10px;
+   padding: 10px;
+
+}
+.connexion {
+   margin:auto;
+   text-align: center;
+}
+.themes {
+   margin:auto;
+   text-align: center;
+}
+table {
+   padding-top: 5%;
+   padding-bottom: 5%;
+   margin:auto;
+}
+td {
+   padding : 5px;
+}
+aside {
+   border:1px solid black;
+   margin: 10px;
+   padding: 10px;
+}
+img {
+   border: 1px solid black;
+   border-radius: 10px;
+}
+</style>
+</head>
+
+
+
+<body>
+   <header>
+      <h1>FamyWiki</h1>
+   </header>
+
+   <div class="topnav">
+     <a href="accueil.html">Accueil</a>
+     <a class="active" href="articles.html">Articles</a>
+     <a href="ecrire.html">Ecrire</a>
+     <a href="connexion.html">Connexion</a>
+     <a href="inscription.html">Inscription</a>
+   </div>
+
+
+   <div class="container">
+      <div class="sidebar--right">
+      <aside>
+      <h3>Derniers articles</h3>
+      <p>La peau (/po/, provenant du latin : pellis) est un organe composé de plusieurs couches de tissus. Elle est la première barrière de protection de l'organisme des animaux vertébrés. Chez l'être humain, elle est l'organe le plus étendu et le plus lourd du corps au regard de sa surface et de sa masse : chez l'adulte, environ 2 m2 pour 3 kg chez la femme et 5 kg chez l'homme (soit 7 % de son poids total).
+      <div style="text-align:right;padding-right: 10px">
+        <a href="">Plus</a> <br/>Hier
+      </div></p>
+      <p>La cellule — du latin cellula « cellule de moine » — est l'unité biologique structurelle et fonctionnelle fondamentale de tous les êtres vivants connus. C'est la plus petite unité vivante capable de se reproduire de façon autonome. La science qui étudie les cellules est appelée biologie cellulaire.
+      <div style="text-align:right;padding-right: 10px">
+        <a href="">Plus</a> <br/> Hier
+      </div></p>
+      <br/>
+      </aside>
+      <aside style="text-align:center;">
+        <iframe name="InlineFrame1" id="InlineFrame1" style="width:180px;height:175px;" src="https://www.mathieuweb.fr/calendrier/calendrier-des-semaines.php?nb_mois=1&nb_mois_ligne=1&mois=0&an=0&langue=fr&texte_color=B9CBDD&week_color=DAE9F8&week_end_color=C7DAED&police_color=453413&sel=false" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+      </aside>
+      </div>
+		<div class="content">
+             {% for l in sel %}
+			<div class="article">
+			     <table>
+                    <tr>
+                        <td><h3>{{l.titre}}</h3></td>
+                    </tr>
+                    <tr>
+                        <td>{{l.contenu}}</td>
+                    </tr>
+                    <tr>
+                        <td><i>Auteur : </i> {{l.auteur}}</td>
+                    </tr>
+                </table>
+		  		<br/>
+	  			<br/>
+			</div>
+            {% endfor %}
+			<!-- <div class="article">
+			  <h2>Metroid: Other M</h2>
+			  <p>Metroid: Other M (ou simplement Other M) est un jeu d'action-aventure développé en collaboration entre Team Ninja et Nintendo, qui le publie en 2010 sur Wii en Amérique du Nord, au Japon puis en Europe. C'est un jeu de la série Metroid dont les événements prennent place entre Super Metroid et Metroid: Fusion. Le joueur incarne la chasseuse de primes intergalactique Samus Aran qui enquête au cœur de l'épave de la station spatiale, avec la section d'assaut de la Fédération Galactique, dans laquelle figure son ancien officier Adam Malkovich.</p>
+			  <p>Le jeu est développé par Project M, une équipe composée de membres de Nintendo, de l'équipe Team Ninja et du studio d'animation D-Rockets. Yoshio Sakamoto, le développeur emblématique de la série, approche le premier pour leur proposer le développement du jeu, alors que le second se voit confier la réalisation des scènes cinématiques se déroulant durant le jeu. Un système de contrôles simple est mis en place afin de rendre le jeu plus intuitif et plus attractif, mais aussi dans le but de focaliser davantage le jeu sur l'histoire et la représentation des personnages. Other M se joue dans une perspective à la troisième personne, uniquement avec la télécommande Wii, et son gameplay se concentre sur l'exploration et le combat. Le jeu introduit un nouveau système d'attaques, mais qui ne peuvent être exécutées que si la vie des ennemis est réduite jusqu'à un certain niveau.</p>
+			  	<br/>
+	  			<br/>
+			</div>-->
+		</div>
+   </div>
+
+   <div class="topnav">
+     <a href="apropos.html">A Propos</a>
+     <a href="contact.html">Contact</a>
+   </div>
+
+
+</body>
+</html>

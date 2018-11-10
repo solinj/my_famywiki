@@ -55,12 +55,21 @@ header h1 {
 	padding: 10px;
 
 }
-.connexion {
+.connexion{
 	margin-left : 20%;
 	margin-right: 20%;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
+	border:1px solid black;
+	padding : 30px;
+}
+.contact {
+	margin-left : 20%;
+	margin-right: 20%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: left;
 	border:1px solid black;
 	padding : 30px;
 }
@@ -83,13 +92,14 @@ aside {
 	  <a href="accueil.html">Accueil</a>
 	  <a href="articles.html">Articles</a>
 	  <a href="ecrire.html">Ecrire</a>
-	  <a class="active" href="connexion.html">Connexion</a>
+	  <a href="connexion.html">Connexion</a>
 	  <a href="inscription.html">Inscription</a>
 	</div>
 
 
 	<div class="container">
 		<div class="sidebar--right">
+		
 			<aside>
 			<h3>Derniers articles</h3>
 			<p>La peau (/po/, provenant du latin : pellis) est un organe composé de plusieurs couches de tissus. Elle est la première barrière de protection de l'organisme des animaux vertébrés. Chez l'être humain, elle est l'organe le plus étendu et le plus lourd du corps au regard de sa surface et de sa masse : chez l'adulte, environ 2 m2 pour 3 kg chez la femme et 5 kg chez l'homme (soit 7 % de son poids total).
@@ -105,31 +115,29 @@ aside {
 			<aside style="text-align:center;">
 				<iframe name="InlineFrame1" id="InlineFrame1" style="width:180px;height:175px;" src="https://www.mathieuweb.fr/calendrier/calendrier-des-semaines.php?nb_mois=1&nb_mois_ligne=1&mois=0&an=0&langue=fr&texte_color=B9CBDD&week_color=DAE9F8&week_end_color=C7DAED&police_color=453413&sel=false" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
 			</aside>
+
 		</div>
 		<div class="content">
-			<div class="connexion">
-			  <h2>Se connecter</h2>
-			  <form action="connexion.html" method="post">
-			  	<p>Nom d'utilisateur</p>
-				  <input name="name" type="text" >
-				<p>Mot de passe</p>
-				  <input name="password" type="text" > <br/>
-				  <input type="submit" value="Se connecter">
+			<div class="contact">
+			  <h2>Contact</h2>
+			  <form action="contact.html" method="post">
+			  	<p>De</p>
+				  <input name="email" type="text" >
+				<p>sujet</p>
+				  <input name="sujet" type="text" > <br/>
+				<br/>
+				<textarea name="contenu" rows=10 cols=50></textarea>
+				<br/> <br/>
+				  <input type="submit" value="Envoyer">
 				</form>
-				<a href="connexion.html">Mot de passe oublié ?</a>
-		  		<br/>
-	  			<br/>
-	  			<form action="inscription.html" method="post">
-			  	<p>Nouvel utilisateur</p>
-				  <input type="submit" value="S'inscrire">
-				</form>
+				
 			</div>
 		</div>
 	</div>
 
 	<div class="topnav">
 	  <a href="apropos.html">A Propos</a>
-	  <a href="contact.html">Contact</a>
+	  <a class="active" href="contact.html">Contact</a>
 	</div>
 
 

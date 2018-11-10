@@ -13,21 +13,56 @@ import bson as bo
 import glob
 #from bson.objectid import ObjectId
 
-app = Flask(__name__)
+#app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
-app.config['MONGO_DBNAME'] = 'articles_bdd' # name of database on mongo
-app.config["MONGO_URI"] = "mongodb://127.0.0.1:27017/articles_bdd"
+app.config['MONGO_DBNAME'] = 'articles_bdd_v2' # name of database on mongo
+app.config["MONGO_URI"] = "mongodb://127.0.0.1:27017/articles_bdd_v2"
 mongo = fp.PyMongo(app)
 
 
-
-@app.route("/", methods=["GET"])
-def accueil():
+#@app.route("/", methods=["GET"])
+#def accueil():
     #ACCUEIL
     # cursor = mongo.db.monuments.find({"REG":"Alsace"})
-    cursor = list(mongo.db.articles.find({"theme":"science"}))
+ #   cursor = list(mongo.db.articles.find())
     #return render_template("accueil.html")
-    return render_template('template.html', data = cursor)
+  #  return render_template('template.html', data = cursor)
+
+
+@app.route("/", methods=["GET", "POST"])
+def accueil():
+
+    if request.method == 'POST':
+        req = (request.form['motcle']).lower()
+        res = mongo.db.articles.find({"motcle":req})
+        err = str("Pas de résultat pour '" + str(request.form['motcle']) + "'.")
+        item_count = mongo.db.articles.count_documents({"motcle": req})
+
+        if item_count > 1:
+            return render_template("articles_lire.html", data=res)
+        else:
+            print("yolo")
+            print(err)
+            flag = "ko"
+            return render_template('accueil.html', data=err, res_flag=flag)
+    else:
+        return render_template('accueil.html')
+    #ACCUEIL
+    # cursor = mongo.db.monuments.find({"REG":"Alsace"})
+    #cursor = list(mongo.db.articles.find())
+    #return render_template("accueil.html")
+
+
+@app.route("/themes/", methods=["GET", "POST"])
+def select_theme():
+        return render_template("articles_choix_themes.html")
+
+@app.route("/tous_les_articles/<selected_theme>", methods=["GET"])
+def all_articles_from_one_theme(selected_theme):
+    all_articles=list(mongo.db.articles.find({"theme":selected_theme}))
+    return render_template("articles_tous.html", sel=all_articles)
+
 
 @app.route("/recherche_article/", methods=["GET", "POST"])
 def recherche_article():
