@@ -16,42 +16,30 @@ import glob
 #app = Flask(__name__)
 app = Flask(__name__, static_url_path='/static')
 
-app.config['MONGO_DBNAME'] = 'articles_bdd_v2' # name of database on mongo
-app.config["MONGO_URI"] = "mongodb://127.0.0.1:27017/articles_bdd_v2"
+app.config['MONGO_DBNAME'] = 'art' # name of database on mongo
+app.config["MONGO_URI"] = "mongodb://127.0.0.1:27017/art"
 mongo = fp.PyMongo(app)
 
-
-#@app.route("/", methods=["GET"])
-#def accueil():
-    #ACCUEIL
-    # cursor = mongo.db.monuments.find({"REG":"Alsace"})
- #   cursor = list(mongo.db.articles.find())
-    #return render_template("accueil.html")
-  #  return render_template('template.html', data = cursor)
-
-
+@app.route("/accueil", methods=["GET", "POST"])
+@app.route("/index", methods=["GET", "POST"])
 @app.route("/", methods=["GET", "POST"])
 def accueil():
-
     if request.method == 'POST':
         req = (request.form['motcle']).lower()
+        print(req)
         res = mongo.db.articles.find({"motcle":req})
         err = str("Pas de résultat pour '" + str(request.form['motcle']) + "'.")
         item_count = mongo.db.articles.count_documents({"motcle": req})
 
-        if item_count > 1:
-            return render_template("articles_lire.html", data=res)
-        else:
-            print("yolo")
-            print(err)
-            flag = "ko"
-            return render_template('accueil.html', data=err, res_flag=flag)
+       #
+        return render_template("articles_lire.html", data=res)
+        #else:
+         #   print("yolo")
+          #  print(err)
+           # flag = "ko"
+            #return render_template('accueil.html', data=err, res_flag=flag)
     else:
         return render_template('accueil.html')
-    #ACCUEIL
-    # cursor = mongo.db.monuments.find({"REG":"Alsace"})
-    #cursor = list(mongo.db.articles.find())
-    #return render_template("accueil.html")
 
 
 @app.route("/themes/", methods=["GET", "POST"])
@@ -93,6 +81,27 @@ def show_article():
     #     return render_template('template.html', data = result_by_key_word)
     # else:
     #     return render_template('HTML_BarreRecherche.html')
+
+@app.route("/inscription/", methods=["GET", "POST"])
+def inscription():
+    return render_template("inscription.html")
+
+@app.route("/contribution/", methods=["GET", "POST"])
+def contribution():
+    return render_template("ecrire.html")
+
+
+@app.route("/contact/", methods=["GET", "POST"])
+def contact():
+    return render_template("contact.html")
+
+@app.route("/connexion/", methods=["GET", "POST"])
+def connexion():
+    return render_template("connexion.html")
+
+@app.route("/a_propos/", methods=["GET", "POST"])
+def a_propos():
+    return render_template("apropos.html")
 
 
 

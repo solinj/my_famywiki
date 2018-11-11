@@ -72,10 +72,10 @@ aside {
 
 	<div class="topnav">
 	  <a class="active" href="accueil.html">Accueil</a>
-	  <a href="articles.html">Articles</a>
-	  <a href="ecrire.html">Ecrire</a>
-	  <a href="connexion.html">Connexion</a>
-	  <a href="inscription.html">Inscription</a>
+	  <a href = {{url_for('select_theme') }}>Articles</a>
+	  <a href = {{url_for('contribution') }}>Ecrire</a>
+	  <a href = {{url_for('connexion') }}>Connexion</a>
+	  <a href = {{url_for('inscription') }}>Inscription</a>
 	</div>
 
 </br>
@@ -132,8 +132,8 @@ aside {
 	</div>
 
 	<div class="topnav">
-	  <a href="apropos.html">A Propos</a>
-	  <a href="contact.html">Contact</a>
+	  <a href = {{url_for('a_propos') }}>A Propos</a>
+	  <a href = {{url_for('contact') }}>Contact</a>
 	</div>
 
 
